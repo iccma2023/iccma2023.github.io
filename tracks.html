@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta name="description" content="description"/>
+<meta name="keywords" content="keywords"/> 
+<meta name="author" content="author"/> 
+<link rel="stylesheet" type="text/css" href="default.css" media="screen"/>
+<title>ICCMA 2023: 5th International Competition on Computational Models of Argumentation</title>
+
+</head>
+
+<body>
+
+<div class="outer-container">
+
+<div class="inner-container">
+
+<div class="header">
+		
+<div class="title">
+
+<span class="sitename"><a href="index.html"><font color="#000000">ICCMA</font> <font color="#999999">2023</font></a></span>
+<div class="slogan">5th International Competition on Computational Models of Argumentation</div>
+    </div>
+</div>
+
+
+
+<div class="main">		
+
+<div class="content">
+
+<p></p>
+
+<h1>ICCMA 2023 Competition Tracks</h1>
+
+<p></p>
+
+<p>ICCMA 2023 consists of four tracks: the main track and the special approximate, dynamic, and ABA tracks.
+  Each track is composed of multiple sub-tracks, defined by a combination of a reasoning problem and
+  an argumentation semantics. <i>Argumentation systems can be submitted for evaluation into any choice of sub-tracks, i.e., there is no requirement to support e.g. all semantics for a specific reasoning problem, or
+  all reasoning problems for a specific semantics.</i>
+</p>
+
+<h2>Main Track</h2>
+
+<p><i>Note: The focus of the Main Track is to evaluate sequential core argumentation reasoning engines available in open source.
+    Systems combining different core reasoning engines e.g. via portfolio-style techniques, systems employing
+    parallel computations via the use of multiple processor cores, as well as systems which will not be
+    made available in open source are invited to the special
+    <a href=#nolimits>No-Limits Track</a> which consists of the same subtracks as the Main Track.
+The organizers reserve the right to move Main Track submissions to No-Limits based on case-by-case analysis.</i></p>
+
+<h3>Problem Setting</h3>
+
+
+<p>
+We recall the definition of Dung's Abstract Argumentation Frameworks (AFs) [Dung 95] and its semantics.
+</p>
+
+<p>
+An AF is a directed graph F = (A,R) where A is a set of arguments, and R ⊆ A × A is the attack relation. For a,b ∈ A, we say that a attacks b when (a,b) ∈ R. If in addition b attacks c ∈ A, then a defends c against b. The same concepts are extended to sets of arguments: S ⊆ A attacks (respectively defends) an argument b ∈ A if there is some a ∈ S that attacks (respectively defends) b. 
+</p>
+
+<p>
+The relevant semantics of AFs are defined as follows. Let the range of S ⊆ A be S {a ∈ A | S attacks a}. A set S ⊆ A is
+<ul>
+    <li>conflict-free (S ∈ CF(F)) if S does not attack any of its elements;
+    <li>admissible (S ∈ AD(F)) if S ∈ CF(F) and S defends all its elements against all their attackers.
+    <li>a complete extension (S ∈ CO(F)) if S ∈ AD(F) and S contains all the arguments that it defends;
+    <li>a preferred extension (S ∈ PR(F)) if S is a maximal (w.r.t. set inclusion) admissible extension;
+    <li>a stable extension (S ∈ ST(F)) if S ∈ CF(F) and S attacks each argument not in S;
+    <li>a semi-stable extension (S ∈ SST(F)) if S is complete and has a minimal range (w.r.t. set inclusion) among the complete extensions;
+    <li>a stage extension (S ∈ STG(F)) if S is conflict-free and has a minimal range (w.r.t. set inclusion) among the conflict-free extensions;
+    <li>an ideal extension (S ∈ ID(F)) if S is the maximal (w.r.t. set inclusion) admissible extension that is a subset of each preferred extension.
+</ul>
+
+<h3>Subtracks</h3>
+
+<p>
+The semantics included in the <i>Main Track</i> are complete (CO), preferred (PR), stable (ST), semi-stable (SST), stage (STG), ideal (ID).
+</p>
+
+<p>
+The reasoning problems included in the <i>Main Track</i> are 
+<ul>
+    <li>DC-σ: Given F=(A,R) and a ∈ A, decide whether a is credulously accepted under σ and if it is, report a σ-extension that contains a.
+    <li>DS-σ: Given F=(A,R) and a ∈ A, decide whether a is skeptically accepted under σ and if it is not, report a σ-extension that does not contain a.
+    <li> SE-σ: Given F=(A,R), return a σ-extension of F.
+</ul>
+
+The following combinations of the semantics and reasoning modes is a subtrack: DC-{CO|ST|SST|STG|ID}, DS-{PR|ST|SST|STG}, SE-{PR|ST|SST|STG|ID}.
+</p>
+
+<h3>Ranking</h3>
+
+<p>
+Each subtrack (i.e. semantics and reasoning mode combination) is ranked separately.
+The time limit is 1200 seconds CPU time per instance, and PAR-2 scoring is used.
+That is, the score for a given solver on an instance is 2 * 1200 if the solver timed out on this instance, and otherwise the CPU running time of the solver on this instance in seconds. The score for a solver on a subtrack is the sum of the solver’s scores over all instances of the subtrack. The winner is the solver with the lowest score.
+</p>
+
+<a name="nolimits"></a>
+<h3>No-Limits Track</h3>
+
+<p>
+The <i>No-Limits Track</i> is a more permissible version of the <i>Main Track</i> and has the same problems as subtracks. In particular, solvers are allowed to run on multiple cores and can be portfolio-based (i.e. combine the usage of several solvers). The execution environment has 8 cores and 16 threads available. 
+The ranking is otherwise the same as for the <i>Main Track</i>, but wall-clock time is used instead of CPU time.
+</p>
+
+  
+<h2>Approximate Track</h2>
+
+<h3>Problem Setting</h3>
+
+<p>
+Abstract argumentation, as defined above. Correctness requirements and ranking are different than other tracks: incorrect solutions are simply discarded and only the number of correct solutions is taken into account. The time limit for the track is lower than for the other tracks, namely 60 seconds CPU time per instance.
+</p>
+
+<h3>Subtracks</h3>
+
+<p>
+Semantics: CO, PR, ST, SST, STG, ID. Reasoning modes: DC-σ and DS-σ. 
+The following combinations of the semantics and reasoning modes is a subtrack: DC-{CO|ST|SST|STG|ID}, DS-{PR|ST|SST|STG}.
+</p>
+  
+<h3>Ranking</h3>
+
+<p>
+Each subtrack (i.e. semantics and reasoning mode combination) is ranked separately.
+The solver with the largest amount of correctly solved instances overa time limit of 60 seconds wins. If needed, cumulative CPU running time over solved instances is used as a tie-breaker.
+</p>
+
+<h2>Dynamic Track</h2>
+
+<h3>Problem Setting</h3>
+
+<p>
+Abstract argumentation, as defined above. Dynamic changes to an initial AF and acceptance queries are issued by different applications via <a href="https://bitbucket.org/coreo-group/ipafair/">IPAFAIR</a>, an API for incremental reasoning in abstract argumentation. Please see ipafair.py <a href="https://bitbucket.org/coreo-group/ipafair/">in the repository</a> for more details.
+</p>
+
+<h3>Subtracks</h3>
+
+<p>
+The subtracks in the <i>Dynamic Track</i> are DC-CO, DS-PR, DC-ST, and DS-ST. Each subtrack consists of applications which call an AF solver which implements the interface, applying changes to the underlying AF between solve calls. The name of the subtrack determines the allowed reasoning task and semantics. For example, in the DS-PR subtrack, the AF solver is initialized using the preferred semantics, and only solve_skept() calls are allowed with a single query argument. Both the query argument and the underlying AF may change between these calls.
+</p>
+
+<h3>Ranking</h3>
+
+<p>
+Each subtrack (i.e. semantics and reasoning mode combination) is ranked separately.
+The time limit is 1200 seconds CPU time per instance, and PAR-2 scoring is used.
+That is, the score for a given solver on an instance is 2 * 1200 if the solver timed out on this instance, and otherwise the CPU running time of the solver on this instance in seconds. The score for a solver on a subtrack is the sum of the solver’s scores over all instances of the subtrack. The winner is the solver with the lowest score.
+</p>
+
+<h2>ABA Track</h2>
+
+<h3>Problem Setting</h3>
+
+<p>
+Assumption-based Argumentation (ABA) [Bondarenko et al 97] and the corresponding semantics are defined as follows. 
+</p>
+
+<p>
+An ABA framework is a tuple F = (L,R,A,‾) where 
+<ul>
+    <li>L is a set of literals 
+    <li> R is a set of rules
+    <li> A ⊆ L is a (non-empty) set of assumptions
+    <li> ‾ is a mapping from assumptions to literals, that represents a notion of contrariness
+</ul>
+
+A rule h ← b1,...,bn is made of literals h, b1,... bn ∈ L, and n ≥ 0. We call h the head of the rule and b1,... bn the body. A rule without a body (i.e. h ←, or alternatively h ←⊤) is a fact. We consider only flat ABA frameworks, i.e. ABA frameworks where the head of a rule is never an assumption. 
+</p>
+
+<p>
+A sentence a ∈ L is derivable from a set X ⊆ A via rules R, denoted by X ⊢ a, if a ∈ X or there is a sequence of rules (r1,...,rn) such that head(rn) = a and for each rule ri we have ri ∈ R and each sentence in the body of ri is derived from rules earlier in the sequence or in X. A set of assumptions A1 attacks a set of assumptions A2 if the contrary of some a ∈ A2 is derivable from A1. A set of assumptions A1 defends an assumption a if A1 attacks every set of assumption that attacks a.
+</p>
+
+<p>
+The semantics for an ABA framework can be defined as follows. Given a set of assumptions X ⊆ A,
+<ul>
+    <li>X ∈ CF(F) if it does not attack any of its elements;
+<li>X ∈ AD(F) if X ∈ CF(F) and X defends all its elements;
+<li>X ∈ CO(F) if X ∈ AD(F) and X contains every assumption it defends;
+<li>X ∈ PR(F) if it is a ⊆-maximal admissible set of F;
+<li>X ∈ ST(F) if X ∈ CF(F) and X attacks every assumption not in X.
+    </ul>
+    We call a set of assumptions in σ(F) a σ-extension for semantics σ ∈ {CO, PR, ST} (complete, preferred and stable, respectively).
+</p>
+
+<h3>Subtracks</h3>
+
+<p>
+Semantics: CO, PR, ST. 
+</p>
+
+<p>
+The reasoning tasks for the <i>ABA Track</i> are 
+<ul>
+    <li>DC-σ: Given ABF F=(L,R,A,‾) and s ∈ L, decide whether s is credulously accepted under σ.
+    <li>DS-σ: Given ABF F=(L,R,A,‾) and s ∈ L, decide whether s is skeptically accepted under σ.
+    <li>SE-σ: Given ABF F=(L,R,A,‾), return a σ-extension of F.
+</ul>
+</p>
+
+<p>
+The following combinations of the semantics and reasoning modes is a subtrack: DC-{CO|ST}, DS-{PR|ST}, SE-{PR|ST}.
+</p>
+
+<h3>Ranking</h3>
+
+<p>
+Each subtrack (i.e. semantics and reasoning mode combination) is ranked separately.
+The time limit is 1200 seconds CPU time per instance, and PAR-2 scoring is used.
+That is, the score for a given solver on an instance is 2 * 1200 if the solver timed out on this instance, and otherwise the CPU running time of the solver on this instance in seconds. The score for a solver on a subtrack is the sum of the solver’s scores over all instances of the subtrack. The winner is the solver with the lowest score.
+</p>
+
+<h1>References</h1>
+<p>
+[Dung 95] P. M. Dung, On the Acceptability of Arguments and its Fundamental Role in Nonmonotonic Reasoning, Logic Programming and n-Person Games. Artif. Intell. 77(2): 321-358 (1995)
+</p>
+
+<p>
+[Bondarenko et al 97] A. Bondarenko, P. M. Dung, R. Kowalski, F. Toni, An Abstract, Argumentation-Theoretic Approach to Default Reasoning. Artif. Intell. 93: 63-101 (1997)
+</p>
+
+</div>
+
+
+  <!-- NAVIGATION -->
+
+  
+<div class="navigation">
+
+
+<h2><b>Important Dates</b></h2>
+<ul>
+<li><a href="submission.html">Submissions: <span class="right">April 15</span></a></li>
+<li><a href="rankings.html">Results: <span class="right">at KR'23</span></a></li>
+</ul>
+
+<h2><b>Calls</b></h2>
+<ul>
+  <li><a href="call-for-benchmarks.html">Call for Benchmarks</a></li>
+  <li><a href="call-for-solvers.html">Call for Solvers</a></li>
+  </ul>
+
+  <h2><b>Participation</b></h2>
+  <ul>
+    <li><a href="tracks.html">Tracks</a></li>
+    <li><a href="rules.html">Rules</a></li>
+    <li><a href="execution.html">Execution Environment</a></li>
+    <li><a href="submission.html">Submissions</a></li>
+  </ul>
+
+<h2><b>Results</b></h2>
+
+<ul>
+  <li><a href="rankings.html">Rankings and Data</a></li>
+  <li><a href="benchmarks.html">Benchmarks</a></li>
+  <li><a href="solvers.html">Solvers</a></li>
+  </ul>
+
+
+<h2><b>Further Information</b></h2>
+<ul>
+<!--  <li><a href="organization.html">Organizers</a></li>-->
+<li><a href="history.html">History</a></li>
+</ul>
+
+
+</div>
+
+
+
+<div class="clearer">&nbsp;</div>
+
+
+
+
+<div class="footer">
+
+<span class="right">
+
+
+</span>
+
+<div class="clearer"></div>
+
+</div>
+
+
+
+
+</div>
+
+</div>
+
+</body>
+
+</html>

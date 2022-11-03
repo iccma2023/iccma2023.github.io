@@ -1,0 +1,376 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta name="description" content="description"/>
+<meta name="keywords" content="keywords"/> 
+<meta name="author" content="author"/> 
+<link rel="stylesheet" type="text/css" href="default.css" media="screen"/>
+<title>ICCMA 2023: 5th International Competition on Computational Models of Argumentation</title>
+</head>
+
+<body>
+
+<div class="outer-container">
+
+<div class="inner-container">
+
+<div class="header">
+		
+<div class="title">
+
+<span class="sitename"><a href="index.html"><font color="#000000">ICCMA</font> <font color="#888888">2023</font></a></span>
+<div class="slogan">5th International Competition on Computational Models of Argumentation</div>
+    </div>
+</div>
+
+
+
+
+<div class="main">		
+
+<div class="content">
+
+<p></p>
+
+<h1>Rules</h1>
+<p></p>
+<h2>General</h2>
+
+<ul>
+  <h4>Withdrawal</h4>
+  <p>A solver can be withdrawn from ICCMA 2023 only before the deadline for the submission of the
+    final versions. After this deadline no further changes or
+    withdrawals of the solvers are possible.</p>
+  <h4>Number of solver submissions</h4>
+  <p>The evaluation organizers
+    reserve the right to restrict the number of solver submissions
+    originating from the same author(s) based on computation resource
+    limitations.</p>
+  <h4>Disqualification</h4>
+  <p>A solver will not be immediately
+        disqualified if it displays a wrong solution during the
+        execution of the evaluation. The organizers will aim to
+        provide all participants a fair chance of submitting bug fixes
+        to their solvers in a timely manner based on feedback on wrong
+        results. However, the organizers reserve the right to limit
+        the number of resubmissions of a buggy solver based on
+        resource limitations.</p>
+
+  <p>If the solver's bug cannot be resolved, the submitters will
+      still have the option of having the solver's correct results
+      tabulated and reported in the table of results. However, the
+      results will be marked to indicate that the solver also
+      generated some incorrect results.</p>
+  <h4>Correctness</h4>
+  <ul>A solver is correct on a task of a subtrack if it fulfills the following requirements
+      for every instance executed during the evaluation.
+      For every subtrack, the output of the solver must conform to the I/O requirements, see <a href="#solver-requirements">Solver Requirements</a>.
+      No additional output is allowed. If the solver exits without running out of time or memory, it must exit without any errors, and fulfill the following requirements.
+      <li><i>Main Track</i> and <i>No-Limits Track</i>:
+      <ul>
+        <li>DC-σ: If the query argument is credulously accepted, the solver outputs YES along with a certificate, i.e., a σ-extension containing the query. Otherwise, the solver outputs NO.</li>
+        <li>DS-σ: If the query argument is not skeptically accepted, the solver outputs NO along with a certificate, i.e., a σ-extension not containing the query. Otherwise, the solver outputs YES.</li>
+        <li>SE-σ: The solver outputs a σ-extension.</li>
+      </ul>
+      </li>
+      <i>Note: For solvers wishing to participate in the Main Track
+	implementing an algorithm for DC-σ or DS-σ
+	which can be argued to produce certificates equivalent to σ-extensions (in terms of
+	computational complexity of checking the certificates and in terms of practical solutions for
+	checking the certificates) as certificates: any participant wishing to propose such
+	alternative certificates must contact the organizers no later than December 10, 2022 to discuss
+	the details and possibilities of doing so.</i>
+      <br><br>
+
+      <li><i>Approximate Acceptance Track</i>: same requirements as in <i>Main Track</i>, but without the need to produce a certificate.
+      <li><i>Dynamic Track</i>: every function specified in <a href="https://bitbucket.org/coreo-group/ipafair/">the API</a> is correctly implemented. If the benchmark application issues a sequence of API calls which are not supported by the solver, the solver must enter state ERROR. If this state is encountered, the solver will be excluded from the benchmark application, but will not be disqualified.</li>
+      <li><i>Assumption-Based Argumentation Track</i>: same requirements as in <i>Main Track</i>, but without the need to produce a certificate.</li>
+  </ul>
+<a name=source></a>
+
+<h4>Use of processor cores and portfolio solvers</h4>
+<p>In all tracks except for the <i>No-Limits Track</i>, solvers must use only
+a single core of the processor on the computing node it is run on,
+and solvers making use of multiple cores will be disqualified.
+This limitation does not concern the <i>No-Limits Track</i>, where parallel
+computations are allowed.</p>
+
+<p>Portfolio solvers, which combine several existing argumentation solvers
+are not allowed to participate in the competition. This limitation does not
+concern the <i>No-Limits Track</i>, where portfolios are allowed.</p>
+
+<p>
+The organizers may move a solver from the <i>Main Track</i> to the <i>No-Limits Track</i> if the solver is deemed to violate these conditions.
+</p>
+
+<h4>Open source requirement</h4>
+<p>For all tracks apart from No-Limits, solver source code originating
+  from the authors (including modifications to third-party source code
+  such as SAT solvers as part of a solver) must be submitted together
+  with a corresponding solver binary.
+  The source code package of each participating solver
+  will be made available at the time when the results of ICCMA 2023
+  are presented at the KR 2023 conference. In
+  case bug fixes are submitted during the evaluation (i.e., if
+  requested by the evaluation organizers), the bug-fixed source
+  package must also be submitted together with a bug-fixed solver
+  binary. <i>A solver is allowed to use external binaries or
+  unmodified third-party libraries. However, if the library is non-standard (i.e.,
+  not STL, Boost, etc.) its identity and usage in the solver should be
+  clearly specified in the solver description.</i></p>
+<a name=description></a>
+
+<section id="solver-description">
+
+<h4>Solver description</h4>
+<p>
+Each entrant to ICCMA 2023 <b>must include</b> a short (at least 1, at most 2 pages) description of the system.
+    This should include a list of all authors of the system and their present institutional
+    affiliations.
+    It should also provide details of any non-standard algorithmic techniques (e.g., heuristics, simplification/learning techniques, etc.)
+and data structures, as well as references to relevant literature (be they by the authors themselves or by others).
+
+The system description must be formatted in <a href="http://www.ieee.org/conferences_events/conferences/publishing/templates.html">IEEE Proceedings style</a>, and submitted as PDF.
+    The system descriptions will be posted on the ICCMA 2023 website
+    Furthermore, given that the quality and number of system descriptions is
+    high enough, the organizers are considering publishing the collection of
+    system description as a report under the report series of Department of
+    Computer Science, University of Helsinki (with an ISSN number).
+
+<h4>Participation of the organizers</h4>
+<p>The organizers are allowed to enter their own solvers
+      into the evaluation. To avoid providing them with 
+  advantage over other participants, details of the benchmark selection process will be
+  made public after the submission deadline and it will ensured
+  that no individual organizers nor subsets of the organizers can impose that
+  a specific seed is used for the randomized process applied for benchmark selection.
+  Furthermore, any solver originating from the authors will be published
+  online in open source at the submission deadline.
+</p>
+
+<section id="solver-requirements">
+<h2>Solver requirements</h2>
+
+<p><b>Building.</b> The submitted source code of the solver must include a README with detailed
+instructions on how to compile and invoke the solver.
+For the <i>Dynamic Track</i>, the README must include instructions on building the solver in order to be called via the generic <a href="https://bitbucket.org/coreo-group/ipafair/">Python API</a> (e.g., how to build a dynamic library beforehand).
+All builds must be successful on a standard Linux distribution with x86-64 processors.
+Note that if the solver makes use of non-standard libraries
+or external binaries, they must be included within the submission.</p>
+
+<section id="input-format">
+
+<p><b>Input format.</b> In the <i>Main Track</i>, the <i>No-Limits Track</i>, the <i>Dynamic Track</i>,
+and the <i>Approximate Acceptance Track</i>, the following AF input file format is used.
+The arguments of an AF with n arguments are indexed consecutively with positive integers from 1 to n.
+The first line of the input file is the unique "p-line" of the form
+<pre>
+p af &lt;n&gt;
+</pre>
+where &lt;n&gt; is the number of arguments n, ending with the newline character.
+
+An attack a → b, where a has index i and b has index j, is expressed as the line
+<pre>
+i j
+</pre>
+ending with the newline character.
+
+In addition to the p-line and lines expressing attacks, lines starting with the '#' character
+are allowed. These lines are interpreted as comment lines unrelated to the syntax of the input AF, and
+end with the newline character. No other lines are allowed.
+</p>
+
+<p>
+<i>Example.</i> The AF with five arguments a,b,c,d,e and attacks a → b, b → c, c → d, d → c, d → d is specified as follows, assuming the indexing a=1, b=2, c=3, d=4, e=5.
+<pre>p af 5
+# this is a comment
+1 2
+2 3
+3 4
+4 3
+4 4
+</pre></p>
+
+<p>
+In the <i>Assumption-Based Argumentation track</i>, the following ABA input file format is used.
+The atoms of an ABA framework with n atoms are indexed consecutively with positive integers from 1 to n.
+The first line of the input file is of a the unique "p-line" of the form
+<pre>
+p aba &lt;n&gt;
+</pre>
+where &lt;n&gt; is the number of atoms n, ending with the newline character.   
+Assumptions, rules and contraries are specified on individual lines. A line starting with 'a', followed by an index between 1 and n, specifies that the atom with the index is an assumption. A line starting with 'c', followed by two space-separated indices between 1 and n, specified that the atom corresponding to the second index is a contrary of the atom corresponding to the first index. A line starting with 'r' followed by a space-separated list of indices between 1 and n specify a rule whose head is the atom corresponding to the first index in the list and whose body consists of the atoms corresponding to the subsequent indices in the list.
+Each line starting with 'a', 'c' or 'r' ends with the newline character.
+In addition to the p-line and lines starting with 'a', 'c' or 'r',
+lines starting with the  '#' characted                       
+are allowed. These lines are interpreted as comment lines unrelated to the syntax of the input ABA framework, and
+end with the newline character. No other lines are allowed.         
+</p>
+
+</p>
+
+<p><i>Example.</i> The ABA framework with rules (p ← q,a), (q ←), (r ← b,c), assumptions a,b,c, and contraries a&#773; =  r, b&#773; = s, c&#773; = t is specified as follows, assuming the atom-indexing a=1, b=2, c=3, p=4, q=5, r=6, s=7, t=8.        
+<pre>
+p aba 8
+# this is a comment
+a 1
+a 2
+a 3
+c 1 6
+c 2 7
+c 3 8
+r 4 5 1
+r 5
+r 6 2 3
+</pre></p>
+
+    
+<p><b>Output format.</b> In all tracks except for the <i>Dynamic Track</i>, the solvers must print the result into standard output exactly in the format specified below.
+<ul>
+    <li>DC-σ: 
+        <ul>
+            <li><i>Main</i> and <i>No-Limits Tracks</i>: If the query argument is credulously accepted, the solver outputs YES along with a σ-extension containing the query on the following line. For example, if the solver finds the σ-extension 1,2,5 containing the query argument 1, the solver output must be the following:
+    <pre>YES
+w 1 2 5</pre>
+    Otherwise, the solver output must be:<pre>NO</pre></li>
+    <li> <i>Approximate</i> and <i>ABA Tracks</i>: If the query argument is credulously accepted, the solver output must be: <pre>YES</pre>
+    Otherwise, the solver output must be:<pre>NO</pre></li>
+        </ul>
+    <li>DS-σ: 
+        <ul>
+            <li><i>Main</i> and <i>No-Limits Tracks</i>: If the query argument is not skeptically accepted, the solver outputs NO along with a σ-extension not containing the query on the following line. For example, if the solver finds the σ-extension 1,4 not containing the query argument 2, the solver output must be the following:
+    <pre>NO
+w 1 4</pre>
+    Otherwise, the solver output must be:<pre>YES</pre></li>
+    <li> <i>Approximate</i> and <i>ABA Tracks</i>: If the query argument is credulously accepted, the solver output must be: <pre>YES</pre>
+    Otherwise, the solver output must be:<pre>NO</pre></li>
+        </ul>
+
+    <li>SE-σ: If a σ-extension exists, the solver outputs it. For example, if the solver finds the σ-extension 3,7, the solver output must be the following:
+    <pre>w 3 7
+</pre>
+    Otherwise, the solver output must be:<pre>NO</pre></li>
+</ul></p>
+
+<p>Note that in the <i>Dynamic Track</i>, where the solver is invoked via an API,
+the solver may not print anything to standard output.
+The benchmark application calling the solver will perform the necessary printing.</p>
+
+<p><b>Usage.</b> In all tracks except for the <i>Dynamic Track</i>, the solvers must be executable from a command line with the following behavior.
+    <ul>
+        <li>If no command-line arguments are given, prints author(s) and version information of the solver and exits. Example:
+<pre>user$ solver
+MySolver v1.0
+John Doe, john.doe@example.com</pre></li>
+        <li>If the option --problems is included, prints the supported computational problems and exits. Example:
+<pre>user$ solver --problems
+[DC-CO,DS-CO,SE-CO,DS-PR,SE-PR]</pre></li>
+        <li>Otherwise, the usage of the solver is as follows.
+<pre>solver -p &lt;task&gt; -f &lt;file&gt; [-a &lt;query&gt;]
+</pre>
+The arguments -p &lt;task&gt; and -f &lt;file&gt; are mandatory for all tasks. Here &lt;task&gt; is a computational problem supported by the solver, and &lt;file&gt; is a valid file as described <a href="#input-format">above</a>. The -a &lt;query&gt; argument is mandatory only for the DC and DS tasks. Here &lt;query&gt; is a valid argument (for AF tracks) or a valid assumption (for ABA track). Example (<i>Main</i> or <i>No-Limits Track</i>):
+<pre>user$ solver -p DC-CO -f instance_file -a 2
+YES
+w 2 3
+</pre>
+
+Example (<i>Approximate</i> and <i>ABA Tracks</i>):
+<pre>user$ solver -p DC-CO -f instance_file -a 2
+YES
+
+</pre></li>
+    </ul>
+
+<p>Note that in the <i>Dynamic Track</i>, the solver is invoked via <a href="https://bitbucket.org/coreo-group/ipafair/">IPAFAIR</a>, an incremental API for AF solvers.
+The API contains the specifications for the input arguments and return values of all functions.</p>
+
+<h2>Benchmarks</h2>
+
+  <p>
+    <ul>
+      <li>The benchmark sets used in the evaluation will consists of both instances appearing in the earlier ICCMA benchmark sets as well as new unseen benchmarks.</li>
+      <li>The set of benchmarks used in the evaluation will be revealed only after the results from the evaluation are finalized.</li>
+      <li>The number of benchmarks used in the evaluation is not predetermined.</li>
+      <li>The benchmark selection procedures used consists of two steps. 1. The organizers will divide accessible benchmarks into buckets consisting of "similar" benchmark instances (e.g., originating from the same or similar problem domain). 2. Benchmarks will be drawn randomly one-by-one from each of the buckets, so that a balanced number of benchmarks over the buckets is obtained.</li>
+      </ul>
+    </p>
+
+</div>
+
+
+
+
+  <!-- NAVIGATION -->
+
+  
+<div class="navigation">
+
+
+<h2><b>Important Dates</b></h2>
+<ul>
+<li><a href="submission.html">Submissions: <span class="right">April 15</span></a></li>
+<li><a href="rankings.html">Results: <span class="right">at KR'23</span></a></li>
+</ul>
+
+<h2><b>Calls</b></h2>
+<ul>
+  <li><a href="call-for-benchmarks.html">Call for Benchmarks</a></li>
+  <li><a href="call-for-solvers.html">Call for Solvers</a></li>
+  </ul>
+
+  <h2><b>Participation</b></h2>
+  <ul>
+    <li><a href="tracks.html">Tracks</a></li>
+    <li><a href="rules.html">Rules</a></li>
+    <li><a href="execution.html">Execution Environment</a></li>
+    <li><a href="submission.html">Submissions</a></li>
+  </ul>
+
+<h2><b>Results</b></h2>
+
+<ul>
+  <li><a href="rankings.html">Rankings and Data</a></li>
+  <li><a href="benchmarks.html">Benchmarks</a></li>
+  <li><a href="solvers.html">Solvers</a></li>
+  </ul>
+
+
+<h2><b>Further Information</b></h2>
+<ul>
+<!--  <li><a href="organization.html">Organizers</a></li>-->
+<li><a href="history.html">History</a></li>
+</ul>
+
+
+</div>
+
+
+
+<div class="clearer">&nbsp;</div>
+
+
+
+
+<div class="footer">
+
+<span class="right">
+
+</span>
+
+<div class="clearer"></div>
+
+</div>
+
+
+
+
+</div>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta name="description" content="description"/>
+<meta name="keywords" content="keywords"/> 
+<meta name="author" content="author"/> 
+<link rel="stylesheet" type="text/css" href="default.css" media="screen"/>
+<title>ICCMA 2023: 5th International Competition on Computational Models of Argumentation</title>
+</head>
+
+<body>
+
+<div class="outer-container">
+
+<div class="inner-container">
+
+<div class="header">
+		
+<div class="title">
+
+<span class="sitename"><a href="index.html"><font color="#000000">ICCMA</font> <font color="#888888">2023</font></a></span>
+<div class="slogan">5th International Competition on Computational Models of Argumentation</div>
+    </div>
+</div>
+
+<div class="main">		
+
+<div class="content">
+
+<p></p>
+
+<h1>Submission Instructions</h1>
+
+<h2>Benchmark Submissions</h2>
+
+<p><b>Main, Approximate, and ABA Tracks.</b> To submit benchmark AFs or ABA frameworks, you will need to prepare an archive containing a set of AF or ABA frameworks in the corresponding input format, see <a href="rules.html#input-format">Input format</a> here. The set of benchmarks must be accompanied by a description of the benchmarks (preferrably in the format described under <a href="rules.html#solver-description">rules</a>). Benchmarks of different levels of hardness and
+any number of benchmarks are of interest. (However, note that (i) the ranking schemes employed in the competition
+are based on the number of solved instances within a specific per-instance time-limit, and hence challenging benchmarks
+for currently available solvers may be of particular interest; and that (ii) the number on benchmarks used from a particular domain may be capped.) You may also contribute by submitting a benchmark generator software implementation, together with suggestions for suitable parameter values for generating interesting benchmark instances.
+Send a link to the archive by email to <a href="mailto:grp-iccma23@helsinki.fi">grp-iccma23@helsinki.fi</a>
+using the subject title "ICCMA23 benchmark submission" <b>by April 15, 2023 the latest</b>.</p>
+
+<p><b>Dynamic Track.</b> To submit a benchmark application for the dynamic track, you need to prepare a Python program which employs the <a href="https://bitbucket.org/coreo-group/ipafair/">the Python version of IPAFAIR</a> (ipafair.py), an API for incremental reasoning in abstract argumentation. In addition to adhering to the API, the program must fulfill the following requirements:
+<ul>
+<li>The program takes as input a single command-line argument corresponding to a single input file.</li>
+<li>In case the input file is not an APX file containing an input AF, you must also provide a selection of input files. Note that an APX file may be directly passed to the AFSolver instance upon initialization.</li>
+<li>Note that the semantics must be specified when initializing the AFSolver instance. Allowed values are CO (complete), PR (preferred), and ST (stable).</li>
+<li>If the semantics is CO, only solve_cred() calls are allowed. If the semantics is PR, only solve_skept() calls are allowed. For ST, call either solve_cred() or solve_skept(), but do not combine both.
+<li>The calls to solve_cred() or solve_skept() must contain a single query argument, which may however be changed between different calls.</li>
+</ul>
+Please do not hesitate to contact the organizers <a href="mailto:grp-iccma23@helsinki.fi">by email</a> in case you have any questions about your benchmark submission.
+</p>
+
+<a name=solversubmission></a>
+<h2>Solver Submissions</h2>
+<p>To submit a solver you will need to prepare a zip or tar file (the
+suffix needs to be .zip, .tar, tar.gz, or .tgz) containing the solver source code,
+necessary third-party libraries, a README with detailed instructions on building the solver, and LaTeX sources and a compiled PDF of the
+solver description following the instructions and format described under under <a href="rules.html#solver-description">rules</a>.
+Send the archive by email to <a href="mailto:grp-iccma23@helsinki.fi">grp-iccma23@helsinki.fi</a>
+using the subject title "ICCMA23 solver submission" <b>by April 15, 2023 the latest</b>.</p>
+
+<p><b>Dynamic Track.</b> To submit a solver to the dynamic track, implement the functions defined in the <a href="https://bitbucket.org/coreo-group/ipafair/">the Python version of IPAFAIR</a> (ipafair.py), an API for incremental reasoning in abstract argumentation, as described in the comments of the API.
+Note especially that if your solver does not provide support for a particular sequence of calls, the solver state must be changed to ERROR.
+See the examples (solver.py and solver.cpp) in the git repository for how to implement the Python API using a dynamic library written in C and <a href="https://bitbucket.org/coreo-group/ipafair/">the C version of IPAFAIR</a> (ipafair.h).
+Please do not hesitate to contact the organizers <a href="mailto:grp-iccma23@helsinki.fi">by email</a> in case you have any questions about your solver submission.
+</p>
+
+
+</div>
+
+
+  <!-- NAVIGATION -->
+
+  
+<div class="navigation">
+
+<h2><b>Important Dates</b></h2>
+<ul>
+<li><a href="submission.html">Submissions: <span class="right">April 15</span></a></li>
+<li><a href="rankings.html">Results: <span class="right">at KR'23</span></a></li>
+</ul>
+
+<h2><b>Calls</b></h2>
+<ul>
+  <li><a href="call-for-benchmarks.html">Call for Benchmarks</a></li>
+  <li><a href="call-for-solvers.html">Call for Solvers</a></li>
+  </ul>
+
+  <h2><b>Participation</b></h2>
+  <ul>
+    <li><a href="tracks.html">Tracks</a></li>
+    <li><a href="rules.html">Rules</a></li>
+    <li><a href="execution.html">Execution Environment</a></li>
+    <li><a href="submission.html">Submissions</a></li>
+  </ul>
+
+<h2><b>Results</b></h2>
+
+<ul>
+  <li><a href="rankings.html">Rankings and Data</a></li>
+  <li><a href="benchmarks.html">Benchmarks</a></li>
+  <li><a href="solvers.html">Solvers</a></li>
+  </ul>
+
+
+<h2><b>Further Information</b></h2>
+<ul>
+<!--  <li><a href="organization.html">Organizers</a></li>-->
+<li><a href="history.html">History</a></li>
+</ul>
+
+
+</div>
+
+
+
+<div class="clearer">&nbsp;</div>
+
+
+
+
+<div class="footer">
+
+<span class="right">
+
+
+</span>
+
+<div class="clearer"></div>
+
+</div>
+
+
+
+
+</div>
+
+</div>
+
+</body>
+
+</html>
