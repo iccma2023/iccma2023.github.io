@@ -184,14 +184,14 @@ end with the newline character. No other lines are allowed.
 </p>
 
 <p>
-<i>Example.</i> The AF with five arguments a,b,c,d,e and attacks a → b, b → c, c → d, d → c, d → d is specified as follows, assuming the indexing a=1, b=2, c=3, d=4, e=5.
+<i>Example.</i> The AF with five arguments a,b,c,d,e and attacks a → b, b → d, d → e, e → d, e → e is specified as follows, assuming the indexing a=1, b=2, c=3, d=4, e=5.
 <pre>p af 5
 # this is a comment
 1 2
-2 3
-3 4
-4 3
-4 4
+2 4
+4 5
+5 4
+5 5
 </pre></p>
 
 <p>
