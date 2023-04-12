@@ -271,7 +271,8 @@ John Doe, john.doe@example.com</pre></li>
         <li>Otherwise, the usage of the solver is as follows.
 <pre>solver -p &lt;task&gt; -f &lt;file&gt; [-a &lt;query&gt;]
 </pre>
-The arguments -p &lt;task&gt; and -f &lt;file&gt; are mandatory for all tasks. Here &lt;task&gt; is a computational problem supported by the solver, and &lt;file&gt; is a valid file as described <a href="#input-format">above</a>. The -a &lt;query&gt; argument is mandatory only for the DC and DS tasks. Here &lt;query&gt; is a valid argument (for AF tracks) or a valid assumption (for ABA track). Example (<i>Main</i> or <i>No-Limits Track</i>):
+The arguments -p &lt;task&gt; and -f &lt;file&gt; are mandatory for all tasks. Here &lt;task&gt; is a computational problem supported by the solver, and &lt;file&gt; is a valid file as described <a href="#input-format">above</a>. The -a &lt;query&gt; argument is mandatory only for the DC and DS tasks. Here &lt;query&gt; is a positive integer less than or equal to &lt;n&gt; (i.e., the number of arguments in the AF tracks and the number of atoms in the ABA tracks) as specified in the p-line.
+Example (<i>Main</i> or <i>No-Limits Track</i>):
 <pre>user$ solver -p DC-CO -f instance_file -a 2
 YES
 w 2 3
